@@ -1,0 +1,98 @@
+### vscode 插件 rest client
+@uri=http://192.168.31.252:8889/apiv1
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImRhbm55In0sImlhdCI6MTYxNTk3MzA3MSwiZXhwIjoxNjE1OTgwMjcxfQ.qtXWErDgSssRPoS35-fvEMfJFZ5geDrAtlDV4OUZaWA
+
+### 首页
+GET {{uri}} HTTP/1.1
+
+### 登录
+POST {{uri}}/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+
+loginType=username
+&username=danny
+&password=123456
+
+###登出
+GET {{uri}}/logout HTTP/1.1
+Authorization: {{token}}
+
+
+### 用户列表
+GET {{uri}}/users HTTP/1.1
+Authorization: {{token}}
+
+
+### 创建用户
+POST {{uri}}/users/create HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+Authorization: {{token}}
+
+username=Foa
+&password=123456
+
+### 创建文章
+POST {{uri}}/articel/create HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+Authorization: {{token}}
+
+title=hhhhhhhhh
+&content=javascript，哈哈
+&cate=javascript
+
+
+### 获取发布文章的所有作者
+GET {{uri}}/articel/getAuthor HTTP/1.1
+Authorization: {{token}}
+
+### 查询文章分类
+GET {{uri}}/articel/getCate HTTP/1.1
+Authorization: {{token}}
+
+
+### 查询文章列表 登录人是否有点赞、浏览量、点赞量，评论数等
+GET {{uri}}/articel/list HTTP/1.1
+Authorization: {{token}}
+
+### 查询文章详情
+GET {{uri}}/articel/source
+?article_id=30
+&haha=haha
+Authorization: {{token}}
+
+
+### 文章点赞 |取消点赞
+POST {{uri}}/articel/like HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+Authorization: {{token}}
+
+article_id=12
+&source_type=web
+
+### 查询文章评论
+GET {{uri}}/comment/article
+?type_id=30
+Authorization: {{token}}
+
+### 评论文章、回复评论
+POST {{uri}}/comment/article HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+Authorization: {{token}}
+
+type_id=1
+&content=哈哈
+&parent_id=5
+
+### 评论点赞、取消点赞
+POST {{uri}}/comment/like HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: iPhone
+Authorization: {{token}}
+
+comment_id=3
+&source_type=web
