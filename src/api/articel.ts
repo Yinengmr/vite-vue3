@@ -1,73 +1,49 @@
-import request from '@/utils/request'
+import request from "@/utils/request";
 
 export const getArticelList = (data?: any): any => {
-    return request({
-        url: '/articel/list',
-        method: 'get',
-        params: data,
-    })
-}
+    return request.get("/articel/list", data);
+};
 
 export const createArticel = (data?: any): any => {
-    return request({
-        url: '/articel/create',
-        method: 'post',
-        data: data,
-    })
-}
+    return request.post("/articel/create", data);
+};
 /**
  * @function like 文章点赞
  * @param data 参数 article_id：目标id source_type：来源
- * @returns 
+ * @return
  */
 export const like = (data?: any): any => {
-    return request({
-        url: '/articel/like',
-        method: 'post',
-        data: data,
-    })
-}
+    return request.post("/articel/like", data);
+};
+/**
+ * @function source 文章详情
+ * @param data 参数
+ * @return
+ */
 export const source = (data?: any): any => {
-    return request({
-        url: '/articel/source',
-        method: 'get',
-        params: data,
-    })
-}
+    return request.get("/articel/source", data);
+};
 /**
  * @function comment 获取文章评论
  * @param params 参数
- * @returns 
+ * @return
  */
 export const comment = (data?: any): any => {
-    return request({
-        url: '/comment/article',
-        method: 'get',
-        params: data,
-    })
-}
+    return request.get("/comment/article", data);
+};
 /**
  * @function addcomment 评论文章或者回复评论
  * @param data type_id=1  &content=哈哈  &parent_id=5
- * @returns 
+ * @return
  */
 export const addcomment = (data?: any): any => {
-    return request({
-        url: '/comment/article',
-        method: 'post',
-        data: data,
-    })
-}
+    return request.post("/comment/article", data);
+};
 /**
  * @function commentLike 评论点赞
  * @param data 参数 article_id：目标id source_type：评论来源
- * @returns 
+ * @return
  */
 export const commentLike = (data?: any): any => {
-    return request({
-        url: '/comment/like',
-        method: 'post',
-        data: data,
-    })
-}
-
+    return request.post("/comment/like", data);
+};

@@ -1,8 +1,5 @@
-import request from '@/utils/request'
+import request from "@/utils/request";
 
-export const test = (data: any): any =>
-  request({
-    url: '/like',
-    method: 'post',
-    data: data,
-  })
+export const test = (data: any): any => {
+    return request.post("/like", data);
+};
